@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import { APIResource } from '/resource';
-import * as EmbeddingsAPI from '/resources/models/embeddings';
-import * as RerankAPI from '/resources/models/rerank';
+import { APIResource } from 'maisa/resource';
+import * as EmbeddingsAPI from 'maisa/resources/models/embeddings';
+import * as RerankAPI from 'maisa/resources/models/rerank';
 
 export class Models extends APIResource {
   embeddings: EmbeddingsAPI.Embeddings = new EmbeddingsAPI.Embeddings(this._client);

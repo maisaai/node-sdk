@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as SearchAPI from '/resources/mainet/search';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as SearchAPI from 'maisa/resources/mainet/search';
 
 export class SearchResource extends APIResource {
   /**

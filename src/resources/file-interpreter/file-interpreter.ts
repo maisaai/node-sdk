@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import { APIResource } from '/resource';
-import * as FromAudioAPI from '/resources/file-interpreter/from-audio';
-import * as FromDocxAPI from '/resources/file-interpreter/from-docx';
-import * as FromHTMLAPI from '/resources/file-interpreter/from-html';
-import * as FromImageAPI from '/resources/file-interpreter/from-image';
-import * as FromPdfAPI from '/resources/file-interpreter/from-pdf';
+import { APIResource } from 'maisa/resource';
+import * as FromAudioAPI from 'maisa/resources/file-interpreter/from-audio';
+import * as FromDocxAPI from 'maisa/resources/file-interpreter/from-docx';
+import * as FromHTMLAPI from 'maisa/resources/file-interpreter/from-html';
+import * as FromImageAPI from 'maisa/resources/file-interpreter/from-image';
+import * as FromPdfAPI from 'maisa/resources/file-interpreter/from-pdf';
 
 export class FileInterpreter extends APIResource {
   fromPdf: FromPdfAPI.FromPdf = new FromPdfAPI.FromPdf(this._client);

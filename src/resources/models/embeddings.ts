@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as EmbeddingsAPI from '/resources/models/embeddings';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as EmbeddingsAPI from 'maisa/resources/models/embeddings';
 
 export class Embeddings extends APIResource {
   /**

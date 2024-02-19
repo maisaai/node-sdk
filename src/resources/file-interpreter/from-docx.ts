@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as FromDocxAPI from '/resources/file-interpreter/from-docx';
-import { type Uploadable, multipartFormRequestOptions } from '/core';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as FromDocxAPI from 'maisa/resources/file-interpreter/from-docx';
+import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
 
 export class FromDocx extends APIResource {
   /**
