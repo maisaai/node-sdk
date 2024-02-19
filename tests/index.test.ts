@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import Maisa from '';
-import { APIUserAbortError } from '';
-import { Headers } from '/core';
+import Maisa from 'maisa';
+import { APIUserAbortError } from 'maisa';
+import { Headers } from 'maisa/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

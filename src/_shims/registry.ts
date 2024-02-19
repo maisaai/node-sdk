@@ -41,10 +41,12 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
-    throw new Error(`you must \`import '/shims/${shims.kind}'\` before importing anything else from `);
+    throw new Error(
+      `you must \`import 'maisa/shims/${shims.kind}'\` before importing anything else from maisa`,
+    );
   }
   if (kind) {
-    throw new Error(`can't \`import '/shims/${shims.kind}'\` after \`import '/shims/${kind}'\``);
+    throw new Error(`can't \`import 'maisa/shims/${shims.kind}'\` after \`import 'maisa/shims/${kind}'\``);
   }
   auto = options.auto;
   kind = shims.kind;

@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as FromImageAPI from '/resources/file-interpreter/from-image';
-import { type Uploadable, multipartFormRequestOptions } from '/core';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as FromImageAPI from 'maisa/resources/file-interpreter/from-image';
+import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
 
 export class FromImageResource extends APIResource {
   /**
