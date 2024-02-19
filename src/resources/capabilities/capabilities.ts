@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as CapabilitiesAPI from '/resources/capabilities/capabilities';
-import * as Shared from '/resources/shared';
-import * as MediaAPI from '/resources/capabilities/media';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as CapabilitiesAPI from 'maisa/resources/capabilities/capabilities';
+import * as Shared from 'maisa/resources/shared';
+import * as MediaAPI from 'maisa/resources/capabilities/media';
 
 export class Capabilities extends APIResource {
   media: MediaAPI.Media = new MediaAPI.Media(this._client);

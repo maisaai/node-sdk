@@ -1,12 +1,12 @@
 {
-  "name": "",
+  "name": "maisa",
   "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Maisa API",
   "author": "Maisa <support@clibrain.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/-node",
+  "repository": "github:clibrain/node-sdk",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.21",
   "files": [
@@ -60,8 +60,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "": ".",
-    "/*": "./src/*"
+    "maisa": ".",
+    "maisa/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {

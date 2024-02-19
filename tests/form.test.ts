@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from '/core';
-import { Blob } from '/_shims/index';
-import { toFile } from '';
+import { multipartFormRequestOptions, createForm } from 'maisa/core';
+import { Blob } from 'maisa/_shims/index';
+import { toFile } from 'maisa';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

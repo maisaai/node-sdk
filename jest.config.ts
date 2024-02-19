@@ -4,9 +4,9 @@ const config: JestConfigWithTsJest = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^$': '<rootDir>/src/index.ts',
-    '^/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^/(.*)$': '<rootDir>/src/$1',
+    '^maisa$': '<rootDir>/src/index.ts',
+    '^maisa/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^maisa/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

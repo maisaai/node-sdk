@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as MediaAPI from '/resources/capabilities/media';
-import * as Shared from '/resources/shared';
-import { type Uploadable, multipartFormRequestOptions } from '/core';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as MediaAPI from 'maisa/resources/capabilities/media';
+import * as Shared from 'maisa/resources/shared';
+import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
 
 export class Media extends APIResource {
   /**

@@ -1,6 +1,6 @@
 # Maisa Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/.svg)](https://npmjs.org/package/)
+[![NPM version](https://img.shields.io/npm/v/maisa.svg)](https://npmjs.org/package/maisa)
 
 This library provides convenient access to the Maisa REST API from server-side TypeScript or JavaScript.
 
@@ -9,9 +9,9 @@ The REST API documentation can be found [on maisa.ai](https://maisa.ai/). The fu
 ## Installation
 
 ```sh
-npm install --save
+npm install --save maisa
 # or
-yarn add
+yarn add maisa
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Maisa from '';
+import Maisa from 'maisa';
 
 const maisa = new Maisa();
 
@@ -39,7 +39,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Maisa from '';
+import Maisa from 'maisa';
 
 const maisa = new Maisa();
 
@@ -165,19 +165,19 @@ add the following import before your first import `from "Maisa"`:
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import '/shims/web';
-import Maisa from '';
+import 'maisa/shims/web';
+import Maisa from 'maisa';
 ```
 
-To do the inverse, add `import "/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/stainless-sdks/tree/main/src/_shims#readme).
+To do the inverse, add `import "maisa/shims/node"` (which does import polyfills).
+This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/clibrain/node-sdk/tree/main/src/_shims#readme).
 
 You may also provide a custom `fetch` function when instantiating the client,
 which can be used to inspect or alter the `Request` or `Response` before/after each request:
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import Maisa from '';
+import Maisa from 'maisa';
 
 const client = new Maisa({
   fetch: async (url: RequestInfo, init?: RequestInfo): Promise<Response> => {
@@ -225,7 +225,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/-node/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/clibrain/node-sdk/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
@@ -234,7 +234,7 @@ TypeScript >= 4.5 is supported.
 The following runtimes are supported:
 
 - Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
-- Deno v1.28.0 or higher, using `import Maisa from "npm:"`.
+- Deno v1.28.0 or higher, using `import Maisa from "npm:maisa"`.
 - Bun 1.0 or later.
 - Cloudflare Workers.
 - Vercel Edge Runtime.

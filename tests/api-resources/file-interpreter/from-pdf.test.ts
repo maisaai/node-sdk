@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import Maisa, { toFile } from '';
+import Maisa, { toFile } from 'maisa';
 import { Response } from 'node-fetch';
 
 const maisa = new Maisa({

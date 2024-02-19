@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless.
 
-import * as Core from '/core';
-import { APIResource } from '/resource';
-import * as RerankAPI from '/resources/models/rerank';
+import * as Core from 'maisa/core';
+import { APIResource } from 'maisa/resource';
+import * as RerankAPI from 'maisa/resources/models/rerank';
 
 export class RerankResource extends APIResource {
   /**
