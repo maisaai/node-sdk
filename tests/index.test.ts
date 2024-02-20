@@ -162,12 +162,12 @@ describe('instantiate client', () => {
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Maisa({ maxRetries: 4, apiKey: 'My API Key' });
-    expect(client.maxRetries).toEqual(4);
+    const client = new Maisa({ maxRetries: 6, apiKey: 'My API Key' });
+    expect(client.maxRetries).toEqual(6);
 
     // default
     const client2 = new Maisa({ apiKey: 'My API Key' });
-    expect(client2.maxRetries).toEqual(2);
+    expect(client2.maxRetries).toEqual(3);
   });
 
   test('with environment variable arguments', () => {
