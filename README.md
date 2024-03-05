@@ -4,11 +4,12 @@
 
 This library provides convenient access to the Maisa REST API from server-side TypeScript or JavaScript.
 
-The REST API documentation can be found [on maisa.ai](https://maisa.ai/). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found [on docs.maisa.ai](https://docs.maisa.ai/). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
 ```sh
+# install from NPM
 npm install --save maisa
 # or
 yarn add maisa
@@ -25,9 +26,9 @@ import Maisa from 'maisa';
 const maisa = new Maisa();
 
 async function main() {
-  const embeddings = await maisa.models.embeddings.create({ texts: ['string'] });
+  const textSummary = await maisa.capabilities.summarize({ text: 'Example long text...' });
 
-  console.log(embeddings.embeddings);
+  console.log(textSummary.summary);
 }
 
 main();
@@ -44,8 +45,8 @@ import Maisa from 'maisa';
 const maisa = new Maisa();
 
 async function main() {
-  const params: Maisa.Models.EmbeddingCreateParams = { texts: ['string'] };
-  const embeddings: Maisa.Models.Embeddings = await maisa.models.embeddings.create(params);
+  const params: Maisa.CapabilitySummarizeParams = { text: 'Example long text...' };
+  const textSummary: Maisa.TextSummary = await maisa.capabilities.summarize(params);
 }
 
 main();
@@ -62,15 +63,17 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const embeddings = await maisa.models.embeddings.create({ texts: ['string'] }).catch((err) => {
-    if (err instanceof Maisa.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+  const textSummary = await maisa.capabilities
+    .summarize({ text: 'Example long text...' })
+    .catch(async (err) => {
+      if (err instanceof Maisa.APIError) {
+        console.log(err.status); // 400
+        console.log(err.name); // BadRequestError
+        console.log(err.headers); // {server: 'nginx', ...}
+      } else {
+        throw err;
+      }
+    });
 }
 
 main();
@@ -91,7 +94,7 @@ Error codes are as followed:
 
 ### Retries
 
-Certain errors will be automatically retried 3 times by default, with a short exponential backoff.
+Certain errors will be automatically retried 2 times by default, with a short exponential backoff.
 Connection errors (for example, due to a network connectivity problem), 408 Request Timeout, 409 Conflict,
 429 Rate Limit, and >=500 Internal errors will all be retried by default.
 
@@ -105,7 +108,7 @@ const maisa = new Maisa({
 });
 
 // Or, configure per-request:
-await maisa.models.embeddings.create({ texts: ['string'] }, {
+await maisa.capabilities.summarize({ text: 'Example long text...' }, {
   maxRetries: 5,
 });
 ```
@@ -122,7 +125,7 @@ const maisa = new Maisa({
 });
 
 // Override per-request:
-await maisa.models.embeddings.create({ texts: ['string'] }, {
+await maisa.capabilities.summarize({ text: 'Example long text...' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -143,15 +146,15 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const maisa = new Maisa();
 
-const response = await maisa.models.embeddings.create({ texts: ['string'] }).asResponse();
+const response = await maisa.capabilities.summarize({ text: 'Example long text...' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: embeddings, response: raw } = await maisa.models.embeddings
-  .create({ texts: ['string'] })
+const { data: textSummary, response: raw } = await maisa.capabilities
+  .summarize({ text: 'Example long text...' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(embeddings.embeddings);
+console.log(textSummary.summary);
 ```
 
 ## Customizing the fetch client
@@ -170,7 +173,7 @@ import Maisa from 'maisa';
 ```
 
 To do the inverse, add `import "maisa/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` - more details [here](https://github.com/clibrain/node-sdk/tree/main/src/_shims#readme).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/maisaai/node-sdk/tree/main/src/_shims#readme)).
 
 You may also provide a custom `fetch` function when instantiating the client,
 which can be used to inspect or alter the `Request` or `Response` before/after each request:
@@ -180,7 +183,7 @@ import { fetch } from 'undici'; // as one example
 import Maisa from 'maisa';
 
 const client = new Maisa({
-  fetch: async (url: RequestInfo, init?: RequestInfo): Promise<Response> => {
+  fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
     console.log('About to make a request', url, init);
     const response = await fetch(url, init);
     console.log('Got response', response);
@@ -201,7 +204,7 @@ If you would like to disable or customize this behavior, for example to use the 
 <!-- prettier-ignore -->
 ```ts
 import http from 'http';
-import HttpsProxyAgent from 'https-proxy-agent';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
 const maisa = new Maisa({
@@ -209,10 +212,12 @@ const maisa = new Maisa({
 });
 
 // Override per-request:
-await maisa.models.embeddings.create({ texts: ['string'] }, {
-  baseURL: 'http://localhost:8080/test-api',
-  httpAgent: new http.Agent({ keepAlive: false }),
-})
+await maisa.capabilities.summarize(
+  { text: 'Example long text...' },
+  {
+    httpAgent: new http.Agent({ keepAlive: false }),
+  },
+);
 ```
 
 ## Semantic Versioning
@@ -225,7 +230,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/clibrain/node-sdk/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/maisaai/node-sdk/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
