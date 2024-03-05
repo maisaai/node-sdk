@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2024-03-05)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/maisaai/node-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* update via SDK Studio ([#10](https://github.com/maisaai/node-sdk/issues/10)) ([ab3b880](https://github.com/maisaai/node-sdk/commit/ab3b88079f8f25d6bee96802011210b807af12f1))
+
 ## 0.1.0-alpha.1 (2024-02-20)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/clibrain/node-sdk/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
