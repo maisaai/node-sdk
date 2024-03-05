@@ -48,7 +48,7 @@ export interface ClientOptions {
    * The maximum number of times that the client will retry a request in case of a
    * temporary failure, like a network error or a 5XX error from the server.
    *
-   * @default 3
+   * @default 2
    */
   maxRetries?: number;
 
@@ -83,7 +83,7 @@ export class Maisa extends Core.APIClient {
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
-   * @param {number} [opts.maxRetries=3] - The maximum number of times the client will retry a request.
+   * @param {number} [opts.maxRetries=2] - The maximum number of times the client will retry a request.
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
@@ -118,6 +118,7 @@ export class Maisa extends Core.APIClient {
 
   capabilities: API.Capabilities = new API.Capabilities(this);
   models: API.Models = new API.Models(this);
+  kpu: API.Kpu = new API.Kpu(this);
   fileInterpreter: API.FileInterpreter = new API.FileInterpreter(this);
   mainet: API.Mainet = new API.Mainet(this);
 
@@ -185,6 +186,10 @@ export namespace Maisa {
   export import CapabilitySummarizeParams = API.CapabilitySummarizeParams;
 
   export import Models = API.Models;
+
+  export import Kpu = API.Kpu;
+  export import KpuRunResponse = API.KpuRunResponse;
+  export import KpuRunParams = API.KpuRunParams;
 
   export import FileInterpreter = API.FileInterpreter;
 
