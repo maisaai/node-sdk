@@ -8,5 +8,6 @@ export {
   Capabilities,
 } from './capabilities/capabilities';
 export { FileInterpreter } from './file-interpreter/file-interpreter';
+export { KpuRunResponse, KpuRunParams, Kpu } from './kpu';
 export { Mainet } from './mainet/mainet';
 export { Models } from './models/models';

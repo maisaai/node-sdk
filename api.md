@@ -44,6 +44,16 @@ Methods:
 
 - <code title="post /v1/models/rerank">client.models.rerank.<a href="./src/resources/models/rerank.ts">create</a>({ ...params }) -> Rerank</code>
 
+# Kpu
+
+Types:
+
+- <code><a href="./src/resources/kpu.ts">KpuRunResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/kpu/run">client.kpu.<a href="./src/resources/kpu.ts">run</a>({ ...params }) -> KpuRunResponse</code>
+
 # FileInterpreter
 
 ## FromPdf

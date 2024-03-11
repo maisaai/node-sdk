@@ -1,12 +1,12 @@
 {
   "name": "maisa",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "The official TypeScript library for the Maisa API",
   "author": "Maisa <support@clibrain.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:clibrain/node-sdk",
+  "repository": "github:maisaai/node-sdk",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.21",
   "files": [
