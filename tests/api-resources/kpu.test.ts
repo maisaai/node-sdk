@@ -1,4 +1,4 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Maisa, { toFile } from 'maisa';
 import { Response } from 'node-fetch';
@@ -30,6 +30,8 @@ describe('resource kpu', () => {
         await toFile(Buffer.from('# my file contents'), 'README.md'),
         await toFile(Buffer.from('# my file contents'), 'README.md'),
       ],
+      reasoner_model: 'gpt-4-turbo',
+      reasoner_prompt: 'string',
     });
   });
 });
