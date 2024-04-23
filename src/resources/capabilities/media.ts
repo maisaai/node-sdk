@@ -1,4 +1,4 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import * as Core from 'maisa/core';
 import { APIResource } from 'maisa/resource';
@@ -10,7 +10,7 @@ export class Media extends APIResource {
   /**
    * Compare extracts of media files based on a specific data. This endpoint supports
    * an additional field `model` documented in this url:
-   * https://dash.readme.com/project/clibrain-platform-api/v1.0/docs/capabilities-with-media-via-json-config
+   * https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
    */
   compare(body: MediaCompareParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextComparator> {
     return this._client.post(
@@ -22,8 +22,7 @@ export class Media extends APIResource {
   /**
    * Extracts structured data from a file. The text is analyzed and the variables are
    * extracted. This endpoint supports an additional field `model` documented in this
-   * url:
-   * https://dash.readme.com/project/clibrain-platform-api/v1.0/docs/capabilities-with-media-via-json-config
+   * url: https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
    */
   extract(body: MediaExtractParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextExtractor> {
     return this._client.post(
@@ -35,7 +34,7 @@ export class Media extends APIResource {
   /**
    * Summarizes a media file. This endpoint supports an additional field `model`
    * documented in this url:
-   * https://dash.readme.com/project/clibrain-platform-api/v1.0/docs/capabilities-with-media-via-json-config
+   * https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
    */
   summarize(body: MediaSummarizeParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextSummary> {
     return this._client.post(
