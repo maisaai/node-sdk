@@ -36,14 +36,6 @@ Methods:
 
 ## Rerank
 
-Types:
-
-- <code><a href="./src/resources/models/rerank.ts">Rerank</a></code>
-
-Methods:
-
-- <code title="post /v1/models/rerank">client.models.rerank.<a href="./src/resources/models/rerank.ts">create</a>({ ...params }) -> Rerank</code>
-
 # Kpu
 
 Types:
@@ -52,7 +44,7 @@ Types:
 
 Methods:
 
-- <code title="post /v1/kpu/run">client.kpu.<a href="./src/resources/kpu.ts">run</a>({ ...params }) -> KpuRunResponse</code>
+- <code title="post /v1/kpu/run">client.kpu.<a href="./src/resources/kpu.ts">run</a>({ ...params }) -> unknown</code>
 
 # FileInterpreter
 
@@ -65,6 +57,16 @@ Types:
 Methods:
 
 - <code title="post /v1/file-interpreter/from-pdf">client.fileInterpreter.fromPdf.<a href="./src/resources/file-interpreter/from-pdf.ts">create</a>({ ...params }) -> unknown</code>
+
+## FromPdfScanned
+
+Types:
+
+- <code><a href="./src/resources/file-interpreter/from-pdf-scanned.ts">FromPdfScannedCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /v1/file-interpreter/from-pdf-scanned">client.fileInterpreter.fromPdfScanned.<a href="./src/resources/file-interpreter/from-pdf-scanned.ts">create</a>({ ...params }) -> unknown</code>
 
 ## FromDocx
 
@@ -90,11 +92,11 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/file-interpreter/from-image.ts">FromImage</a></code>
+- <code><a href="./src/resources/file-interpreter/from-image.ts">FromImageCreateResponse</a></code>
 
 Methods:
 
-- <code title="post /v1/file-interpreter/from-image">client.fileInterpreter.fromImage.<a href="./src/resources/file-interpreter/from-image.ts">create</a>({ ...params }) -> FromImage</code>
+- <code title="post /v1/file-interpreter/from-image">client.fileInterpreter.fromImage.<a href="./src/resources/file-interpreter/from-image.ts">create</a>({ ...params }) -> unknown</code>
 
 ## FromAudio
 
@@ -109,11 +111,3 @@ Methods:
 # Mainet
 
 ## Search
-
-Types:
-
-- <code><a href="./src/resources/mainet/search.ts">Search</a></code>
-
-Methods:
-
-- <code title="post /v1/mainet/search">client.mainet.search.<a href="./src/resources/mainet/search.ts">create</a>({ ...params }) -> Search</code>

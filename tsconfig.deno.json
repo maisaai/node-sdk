@@ -9,7 +9,6 @@
       "maisa/_shims/auto/*": ["deno/_shims/auto/*-deno"],
       "maisa/*": ["deno/*"],
       "maisa": ["deno/index.ts"],
-      "digest-fetch": ["./typings/digest-fetch"]
     },
     "noEmit": true,
     "declaration": true,
