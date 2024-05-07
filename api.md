@@ -60,14 +60,6 @@ Methods:
 
 ## FromPdfScanned
 
-Types:
-
-- <code><a href="./src/resources/file-interpreter/from-pdf-scanned.ts">FromPdfScannedCreateResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/file-interpreter/from-pdf-scanned">client.fileInterpreter.fromPdfScanned.<a href="./src/resources/file-interpreter/from-pdf-scanned.ts">create</a>({ ...params }) -> unknown</code>
-
 ## FromDocx
 
 Types:
