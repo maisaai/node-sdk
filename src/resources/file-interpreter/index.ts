@@ -6,4 +6,4 @@ export { FromDocxCreateResponse, FromDocxCreateParams, FromDocx } from './from-d
 export { FromHTMLCreateResponse, FromHTMLCreateParams, FromHTML } from './from-html';
 export { FromImageCreateResponse, FromImageCreateParams, FromImage } from './from-image';
 export { FromPdfCreateResponse, FromPdfCreateParams, FromPdf } from './from-pdf';
-export { FromPdfScannedCreateResponse, FromPdfScannedCreateParams, FromPdfScanned } from './from-pdf-scanned';
+export { FromPdfScanned } from './from-pdf-scanned';
