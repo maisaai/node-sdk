@@ -22,8 +22,6 @@ export namespace FileInterpreter {
   export import FromPdfCreateResponse = FromPdfAPI.FromPdfCreateResponse;
   export import FromPdfCreateParams = FromPdfAPI.FromPdfCreateParams;
   export import FromPdfScanned = FromPdfScannedAPI.FromPdfScanned;
-  export import FromPdfScannedCreateResponse = FromPdfScannedAPI.FromPdfScannedCreateResponse;
-  export import FromPdfScannedCreateParams = FromPdfScannedAPI.FromPdfScannedCreateParams;
   export import FromDocx = FromDocxAPI.FromDocx;
   export import FromDocxCreateResponse = FromDocxAPI.FromDocxCreateResponse;
   export import FromDocxCreateParams = FromDocxAPI.FromDocxCreateParams;
