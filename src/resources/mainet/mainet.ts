@@ -1,12 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from 'maisa/resource';
-import * as SearchAPI from 'maisa/resources/mainet/search';
+import { APIResource } from '../../resource';
+import * as SearchAPI from './search';
+import { Search } from './search';
 
 export class Mainet extends APIResource {
   search: SearchAPI.Search = new SearchAPI.Search(this._client);
 }
 
-export namespace Mainet {
-  export import Search = SearchAPI.Search;
+Mainet.Search = Search;
+
+export declare namespace Mainet {
+  export { Search as Search };
 }
