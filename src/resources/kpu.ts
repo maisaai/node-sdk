@@ -1,9 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as KpuAPI from 'maisa/resources/kpu';
-import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
+import { APIResource } from '../resource';
+import * as Core from '../core';
 
 export class Kpu extends APIResource {
   /**
@@ -15,7 +13,7 @@ export class Kpu extends APIResource {
     const { explain_steps, retries, ...body } = params;
     return this._client.post(
       '/v1/kpu/run',
-      multipartFormRequestOptions({ query: { explain_steps, retries }, body, ...options }),
+      Core.multipartFormRequestOptions({ query: { explain_steps, retries }, body, ...options }),
     );
   }
 }
@@ -45,7 +43,7 @@ export interface KpuRunParams {
   /**
    * Body param: Files to be used in the KPU execution. Files can be of any type.
    */
-  file?: Array<Uploadable>;
+  file?: Array<Core.Uploadable>;
 
   /**
    * Body param:
@@ -67,7 +65,6 @@ export interface KpuRunParams {
   reasoner_prompt?: string | null;
 }
 
-export namespace Kpu {
-  export import KpuRunResponse = KpuAPI.KpuRunResponse;
-  export import KpuRunParams = KpuAPI.KpuRunParams;
+export declare namespace Kpu {
+  export { type KpuRunResponse as KpuRunResponse, type KpuRunParams as KpuRunParams };
 }
