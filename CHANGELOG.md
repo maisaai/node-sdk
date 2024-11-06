@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2024-11-06)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/maisaai/node-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#12](https://github.com/maisaai/node-sdk/issues/12)) ([70eaf21](https://github.com/maisaai/node-sdk/commit/70eaf210a89697c46c5cf5ce1677d61f4815917b))
+* **api:** OpenAPI spec update via Stainless API ([#14](https://github.com/maisaai/node-sdk/issues/14)) ([39d7ac0](https://github.com/maisaai/node-sdk/commit/39d7ac0350a854f3aeb0d8c19df2cffba70ef001))
+
+
+### Chores
+
+* rebuild project due to codegen change ([#16](https://github.com/maisaai/node-sdk/issues/16)) ([df79224](https://github.com/maisaai/node-sdk/commit/df79224bb82acaee52c77de6bbc473be110e97d2))
+* rebuild project due to oas spec rename ([#15](https://github.com/maisaai/node-sdk/issues/15)) ([9d62f64](https://github.com/maisaai/node-sdk/commit/9d62f6432e15ec16cdcb8b4f8e62ba54a6df3ba0))
+
 ## 0.1.0-alpha.2 (2024-03-05)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/maisaai/node-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
