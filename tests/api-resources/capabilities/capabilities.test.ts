@@ -72,7 +72,7 @@ describe('resource capabilities', () => {
       text: 'Example long text...',
       format: 'paragraph',
       lang: 'en',
-      length: 'short',
+      length: 'medium',
       summary_hint: 'Example summary of the text...',
     });
   });
