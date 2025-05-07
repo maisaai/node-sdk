@@ -6,6 +6,13 @@ import * as Core from '../../core';
 export class Embeddings extends APIResource {
   /**
    * Creates embeddings from pieces of text.
+   *
+   * @example
+   * ```ts
+   * const embeddings = await client.models.embeddings.create({
+   *   texts: ['string'],
+   * });
+   * ```
    */
   create(body: EmbeddingCreateParams, options?: Core.RequestOptions): Core.APIPromise<Embeddings> {
     return this._client.post('/v1/models/embeddings', { body, ...options });

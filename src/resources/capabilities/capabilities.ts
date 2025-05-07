@@ -11,6 +11,20 @@ export class Capabilities extends APIResource {
 
   /**
    * Compare extracts of text based on a specific data.
+   *
+   * @example
+   * ```ts
+   * const textComparator = await client.capabilities.compare({
+   *   text1: 'Lorem Ipsum dolor sit amet',
+   *   text2: 'Sed ut perspiciatis unde omnis',
+   *   variables: {
+   *     name: {
+   *       description: 'The name of the person.',
+   *       type: 'string',
+   *     },
+   *   },
+   * });
+   * ```
    */
   compare(
     body: CapabilityCompareParams,
@@ -22,6 +36,19 @@ export class Capabilities extends APIResource {
   /**
    * Extracts structured data from text. The text is analyzed and the variables are
    * extracted.
+   *
+   * @example
+   * ```ts
+   * const textExtractor = await client.capabilities.extract({
+   *   text: 'Example long text...',
+   *   variables: {
+   *     name: {
+   *       description: 'The name of the person.',
+   *       type: 'string',
+   *     },
+   *   },
+   * });
+   * ```
    */
   extract(
     body: CapabilityExtractParams,
@@ -32,6 +59,13 @@ export class Capabilities extends APIResource {
 
   /**
    * Summarizes a text. The summary is returned in the format and length specified.
+   *
+   * @example
+   * ```ts
+   * const textSummary = await client.capabilities.summarize({
+   *   text: 'Example long text...',
+   * });
+   * ```
    */
   summarize(
     body: CapabilitySummarizeParams,

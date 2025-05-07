@@ -9,6 +9,15 @@ export class Media extends APIResource {
    * Compare extracts of media files based on a specific data. This endpoint supports
    * an additional field `model` documented in this url:
    * https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
+   *
+   * @example
+   * ```ts
+   * const textComparator =
+   *   await client.capabilities.media.compare({
+   *     file1: fs.createReadStream('path/to/file'),
+   *     file2: fs.createReadStream('path/to/file'),
+   *   });
+   * ```
    */
   compare(body: MediaCompareParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextComparator> {
     return this._client.post(
@@ -21,6 +30,14 @@ export class Media extends APIResource {
    * Extracts structured data from a file. The text is analyzed and the variables are
    * extracted. This endpoint supports an additional field `model` documented in this
    * url: https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
+   *
+   * @example
+   * ```ts
+   * const textExtractor =
+   *   await client.capabilities.media.extract({
+   *     file: fs.createReadStream('path/to/file'),
+   *   });
+   * ```
    */
   extract(body: MediaExtractParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextExtractor> {
     return this._client.post(
@@ -33,6 +50,14 @@ export class Media extends APIResource {
    * Summarizes a media file. This endpoint supports an additional field `model`
    * documented in this url:
    * https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
+   *
+   * @example
+   * ```ts
+   * const textSummary =
+   *   await client.capabilities.media.summarize({
+   *     file: fs.createReadStream('path/to/file'),
+   *   });
+   * ```
    */
   summarize(body: MediaSummarizeParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextSummary> {
     return this._client.post(
