@@ -2,7 +2,7 @@
 
 import type { Maisa } from './index';
 
-export class APIResource {
+export abstract class APIResource {
   protected _client: Maisa;
 
   constructor(client: Maisa) {
