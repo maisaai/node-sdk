@@ -118,6 +118,7 @@ export class Maisa extends Core.APIClient {
 
     super({
       baseURL: options.baseURL!,
+      baseURLOverridden: baseURL ? baseURL !== 'https://api.maisa.ai' : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -134,6 +135,13 @@ export class Maisa extends Core.APIClient {
   kpu: API.Kpu = new API.Kpu(this);
   fileInterpreter: API.FileInterpreter = new API.FileInterpreter(this);
   mainet: API.Mainet = new API.Mainet(this);
+
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== 'https://api.maisa.ai';
+  }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
