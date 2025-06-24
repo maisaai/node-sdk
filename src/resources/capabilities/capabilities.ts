@@ -89,7 +89,7 @@ export interface CapabilityCompareParams {
   /**
    * The variables to be compared.
    */
-  variables: Record<string, CapabilityCompareParams.Variables>;
+  variables: { [key: string]: CapabilityCompareParams.Variables };
 
   /**
    * The language of the output. If not provided, the language used will be the same
@@ -126,7 +126,7 @@ export interface CapabilityExtractParams {
   /**
    * The variables to be extracted from the text.
    */
-  variables: Record<string, CapabilityExtractParams.Variables>;
+  variables: { [key: string]: CapabilityExtractParams.Variables };
 
   /**
    * The language of the output. If not provided, the language used will be the same
