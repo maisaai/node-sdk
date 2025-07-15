@@ -22,7 +22,9 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Maisa from 'maisa';
 
-const client = new Maisa();
+const client = new Maisa({
+  apiKey: process.env['MAISA_API_KEY'], // This is the default and can be omitted
+});
 
 const textSummary = await client.capabilities.summarize({ text: 'Example long text...' });
 
@@ -37,7 +39,9 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Maisa from 'maisa';
 
-const client = new Maisa();
+const client = new Maisa({
+  apiKey: process.env['MAISA_API_KEY'], // This is the default and can be omitted
+});
 
 const params: Maisa.CapabilitySummarizeParams = { text: 'Example long text...' };
 const textSummary: Maisa.TextSummary = await client.capabilities.summarize(params);
