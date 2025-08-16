@@ -186,6 +186,7 @@ Maisa.Models = Models;
 Maisa.Kpu = Kpu;
 Maisa.FileInterpreter = FileInterpreter;
 Maisa.Mainet = Mainet;
+
 export declare namespace Maisa {
   export type RequestOptions = Core.RequestOptions;
 
