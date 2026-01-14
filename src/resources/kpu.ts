@@ -46,7 +46,7 @@ export interface KpuRunParams {
   file?: Array<Core.Uploadable>;
 
   /**
-   * Body param:
+   * Body param
    */
   reasoner_model?:
     | 'gpt-4-turbo'
@@ -60,7 +60,7 @@ export interface KpuRunParams {
     | null;
 
   /**
-   * Body param:
+   * Body param
    */
   reasoner_prompt?: string | null;
 }

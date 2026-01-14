@@ -20,12 +20,12 @@ export type FromPdfCreateResponse = unknown;
 
 export interface FromPdfCreateParams {
   /**
-   * Body param:
+   * Body param
    */
   file: Core.Uploadable;
 
   /**
-   * Query param:
+   * Query param
    */
   max_pages?: number | null;
 }
