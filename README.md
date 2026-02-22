@@ -1,5 +1,21 @@
 # Maisa Node API Library
 
+[![Supply Chain PR](https://github.com/maisaai/node-sdk/actions/workflows/pr-supply-chain-security.yaml/badge.svg)](https://github.com/maisaai/node-sdk/actions/workflows/pr-supply-chain-security.yaml)
+[![Supply Chain Release](https://github.com/maisaai/node-sdk/actions/workflows/release-supply-chain-security.yaml/badge.svg)](https://github.com/maisaai/node-sdk/actions/workflows/release-supply-chain-security.yaml)
+
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=maisaai_node-sdk&metric=security_rating)](https://sonarcloud.io/summary/overall?id=maisaai_node-sdk)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=maisaai_node-sdk&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=maisaai_node-sdk)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=maisaai_node-sdk&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=maisaai_node-sdk)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=maisaai_node-sdk&metric=coverage)](https://sonarcloud.io/summary/overall?id=maisaai_node-sdk)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=maisaai_node-sdk&metric=duplicated_lines_density)](https://sonarcloud.io/summary/overall?id=maisaai_node-sdk)
+[![Security Hotspots](https://sonarcloud.io/api/project_badges/measure?project=maisaai_node-sdk&metric=security_hotspots)](https://sonarcloud.io/summary/overall?id=maisaai_node-sdk)
+
+[![GitHub issues](https://img.shields.io/github/issues/maisaai/node-sdk)](https://github.com/maisaai/node-sdk/issues)
+[![Dependabot Status](https://img.shields.io/badge/dependabot-enabled-025E8C?logo=dependabot)](https://github.com/maisaai/node-sdk/network/updates)
+
+---
+
+
 [![NPM version](https://img.shields.io/npm/v/maisa.svg)](https://npmjs.org/package/maisa)
 
 This library provides convenient access to the Maisa REST API from server-side TypeScript or JavaScript.
