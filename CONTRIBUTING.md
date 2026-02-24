@@ -60,7 +60,7 @@ $ yarn link maisa
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global maisa
+$ pnpm link --global maisa
 ```
 
 ## Running tests
