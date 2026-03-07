@@ -11,7 +11,7 @@ const client = new Maisa({
 describe('resource fromHTML', () => {
   test('create: only required params', async () => {
     const responsePromise = client.fileInterpreter.fromHTML.create({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -24,7 +24,7 @@ describe('resource fromHTML', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.fileInterpreter.fromHTML.create({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
     });
   });
 });
