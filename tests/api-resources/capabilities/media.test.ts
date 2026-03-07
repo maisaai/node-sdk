@@ -11,8 +11,8 @@ const client = new Maisa({
 describe('resource media', () => {
   test('compare: only required params', async () => {
     const responsePromise = client.capabilities.media.compare({
-      file1: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      file2: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file1: await toFile(Buffer.from('Example data'), 'README.md'),
+      file2: await toFile(Buffer.from('Example data'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,8 +25,8 @@ describe('resource media', () => {
 
   test('compare: required and optional params', async () => {
     const response = await client.capabilities.media.compare({
-      file1: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      file2: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file1: await toFile(Buffer.from('Example data'), 'README.md'),
+      file2: await toFile(Buffer.from('Example data'), 'README.md'),
       lang: 'en',
       prompt: 'Compare the value for end customer.',
       variable1_description: 'The name of the person.',
@@ -46,7 +46,7 @@ describe('resource media', () => {
 
   test('extract: only required params', async () => {
     const responsePromise = client.capabilities.media.extract({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -59,7 +59,7 @@ describe('resource media', () => {
 
   test('extract: required and optional params', async () => {
     const response = await client.capabilities.media.extract({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
       lang: 'en',
       variable1_description: 'The name of the person.',
       variable1_name: 'Name',
@@ -78,7 +78,7 @@ describe('resource media', () => {
 
   test('summarize: only required params', async () => {
     const responsePromise = client.capabilities.media.summarize({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -91,7 +91,7 @@ describe('resource media', () => {
 
   test('summarize: required and optional params', async () => {
     const response = await client.capabilities.media.summarize({
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
       format: 'paragraph',
       lang: 'en',
       length: 'short',
