@@ -36,7 +36,7 @@ describe('resource capabilities', () => {
 
   test('extract: only required params', async () => {
     const responsePromise = client.capabilities.extract({
-      text: 'Example long text...',
+      text: 'My name is John Doe',
       variables: { name: { description: 'The name of the person.', type: 'string' } },
     });
     const rawResponse = await responsePromise.asResponse();
@@ -50,14 +50,14 @@ describe('resource capabilities', () => {
 
   test('extract: required and optional params', async () => {
     const response = await client.capabilities.extract({
-      text: 'Example long text...',
+      text: 'My name is John Doe',
       variables: { name: { description: 'The name of the person.', type: 'string' } },
       lang: 'en',
     });
   });
 
   test('summarize: only required params', async () => {
-    const responsePromise = client.capabilities.summarize({ text: 'Example long text...' });
+    const responsePromise = client.capabilities.summarize({ text: 'Lorem Ipsum dolor sit amet' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -69,10 +69,10 @@ describe('resource capabilities', () => {
 
   test('summarize: required and optional params', async () => {
     const response = await client.capabilities.summarize({
-      text: 'Example long text...',
+      text: 'Lorem Ipsum dolor sit amet',
       format: 'paragraph',
       lang: 'en',
-      length: 'medium',
+      length: 'long',
       summary_hint: 'Example summary of the text...',
     });
   });
