@@ -26,7 +26,7 @@ const client = new Maisa({
   apiKey: process.env['MAISA_API_KEY'], // This is the default and can be omitted
 });
 
-const textSummary = await client.capabilities.summarize({ text: 'Example long text...' });
+const textSummary = await client.capabilities.summarize({ text: 'Lorem Ipsum dolor sit amet' });
 
 console.log(textSummary.summary);
 ```
@@ -43,7 +43,7 @@ const client = new Maisa({
   apiKey: process.env['MAISA_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Maisa.CapabilitySummarizeParams = { text: 'Example long text...' };
+const params: Maisa.CapabilitySummarizeParams = { text: 'Lorem Ipsum dolor sit amet' };
 const textSummary: Maisa.TextSummary = await client.capabilities.summarize(params);
 ```
 
@@ -103,7 +103,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 const textSummary = await client.capabilities
-  .summarize({ text: 'Example long text...' })
+  .summarize({ text: 'Lorem Ipsum dolor sit amet' })
   .catch(async (err) => {
     if (err instanceof Maisa.APIError) {
       console.log(err.status); // 400
@@ -144,7 +144,7 @@ const client = new Maisa({
 });
 
 // Or, configure per-request:
-await client.capabilities.summarize({ text: 'Example long text...' }, {
+await client.capabilities.summarize({ text: 'Lorem Ipsum dolor sit amet' }, {
   maxRetries: 5,
 });
 ```
@@ -161,7 +161,7 @@ const client = new Maisa({
 });
 
 // Override per-request:
-await client.capabilities.summarize({ text: 'Example long text...' }, {
+await client.capabilities.summarize({ text: 'Lorem Ipsum dolor sit amet' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -182,12 +182,14 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Maisa();
 
-const response = await client.capabilities.summarize({ text: 'Example long text...' }).asResponse();
+const response = await client.capabilities
+  .summarize({ text: 'Lorem Ipsum dolor sit amet' })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: textSummary, response: raw } = await client.capabilities
-  .summarize({ text: 'Example long text...' })
+  .summarize({ text: 'Lorem Ipsum dolor sit amet' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(textSummary.summary);
@@ -295,7 +297,7 @@ const client = new Maisa({
 
 // Override per-request:
 await client.capabilities.summarize(
-  { text: 'Example long text...' },
+  { text: 'Lorem Ipsum dolor sit amet' },
   {
     httpAgent: new http.Agent({ keepAlive: false }),
   },

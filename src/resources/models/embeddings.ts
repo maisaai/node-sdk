@@ -10,7 +10,10 @@ export class Embeddings extends APIResource {
    * @example
    * ```ts
    * const embeddings = await client.models.embeddings.create({
-   *   texts: ['string'],
+   *   texts: [
+   *     'Who invented the light bulb?',
+   *     'Hey, how are you?',
+   *   ],
    * });
    * ```
    */

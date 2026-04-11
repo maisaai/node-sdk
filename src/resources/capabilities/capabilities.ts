@@ -40,7 +40,7 @@ export class Capabilities extends APIResource {
    * @example
    * ```ts
    * const textExtractor = await client.capabilities.extract({
-   *   text: 'Example long text...',
+   *   text: 'My name is John Doe',
    *   variables: {
    *     name: {
    *       description: 'The name of the person.',
@@ -63,7 +63,7 @@ export class Capabilities extends APIResource {
    * @example
    * ```ts
    * const textSummary = await client.capabilities.summarize({
-   *   text: 'Example long text...',
+   *   text: 'Lorem Ipsum dolor sit amet',
    * });
    * ```
    */
