@@ -1,10 +1,20 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from 'maisa/resources/index';
+import * as API from './resources/index';
+import { Kpu, KpuRunParams, KpuRunResponse } from './resources/kpu';
+import {
+  Capabilities,
+  CapabilityCompareParams,
+  CapabilityExtractParams,
+  CapabilitySummarizeParams,
+} from './resources/capabilities/capabilities';
+import { FileInterpreter } from './resources/file-interpreter/file-interpreter';
+import { Mainet } from './resources/mainet/mainet';
+import { Models } from './resources/models/models';
 
 export interface ClientOptions {
   /**
@@ -25,8 +35,10 @@ export interface ClientOptions {
    *
    * Note that request timeouts are retried by default, so in a worst-case scenario you may wait
    * much longer than this timeout before the promise succeeds or fails.
+   *
+   * @unit milliseconds
    */
-  timeout?: number;
+  timeout?: number | undefined;
 
   /**
    * An HTTP agent used to manage HTTP(S) connections.
@@ -34,7 +46,7 @@ export interface ClientOptions {
    * If not provided, an agent will be constructed by default in the Node.js environment,
    * otherwise no agent is used.
    */
-  httpAgent?: Agent;
+  httpAgent?: Agent | undefined;
 
   /**
    * Specify a custom `fetch` function implementation.
@@ -50,7 +62,7 @@ export interface ClientOptions {
    *
    * @default 2
    */
-  maxRetries?: number;
+  maxRetries?: number | undefined;
 
   /**
    * Default headers to include with every request to the API.
@@ -58,7 +70,7 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * header to `undefined` or `null` in request options.
    */
-  defaultHeaders?: Core.Headers;
+  defaultHeaders?: Core.Headers | undefined;
 
   /**
    * Default query parameters to include with every request to the API.
@@ -66,10 +78,12 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * param to `undefined` in request options.
    */
-  defaultQuery?: Core.DefaultQuery;
+  defaultQuery?: Core.DefaultQuery | undefined;
 }
 
-/** API Client for interfacing with the Maisa API. */
+/**
+ * API Client for interfacing with the Maisa API.
+ */
 export class Maisa extends Core.APIClient {
   apiKey: string;
 
@@ -106,11 +120,25 @@ export class Maisa extends Core.APIClient {
 
     super({
       baseURL: options.baseURL!,
+      baseURLOverridden: baseURL ? baseURL !== 'https://api.maisa.ai' : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
+    const customHeadersEnv = Core.readEnv('MAISA_CUSTOM_HEADERS');
+    if (customHeadersEnv) {
+      const parsed: Record<string, string> = {};
+      for (const line of customHeadersEnv.split('\n')) {
+        const colon = line.indexOf(':');
+        if (colon >= 0) {
+          parsed[line.substring(0, colon).trim()] = line.substring(colon + 1).trim();
+        }
+      }
+      options.defaultHeaders = { ...parsed, ...options.defaultHeaders };
+    }
+
     this._options = options;
 
     this.apiKey = apiKey;
@@ -121,6 +149,13 @@ export class Maisa extends Core.APIClient {
   kpu: API.Kpu = new API.Kpu(this);
   fileInterpreter: API.FileInterpreter = new API.FileInterpreter(this);
   mainet: API.Mainet = new API.Mainet(this);
+
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== 'https://api.maisa.ai';
+  }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -138,6 +173,7 @@ export class Maisa extends Core.APIClient {
   }
 
   static Maisa = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static MaisaError = Errors.MaisaError;
   static APIError = Errors.APIError;
@@ -152,9 +188,42 @@ export class Maisa extends Core.APIClient {
   static InternalServerError = Errors.InternalServerError;
   static PermissionDeniedError = Errors.PermissionDeniedError;
   static UnprocessableEntityError = Errors.UnprocessableEntityError;
+
+  static toFile = Uploads.toFile;
+  static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+Maisa.Capabilities = Capabilities;
+Maisa.Models = Models;
+Maisa.Kpu = Kpu;
+Maisa.FileInterpreter = FileInterpreter;
+Maisa.Mainet = Mainet;
+
+export declare namespace Maisa {
+  export type RequestOptions = Core.RequestOptions;
+
+  export {
+    Capabilities as Capabilities,
+    type CapabilityCompareParams as CapabilityCompareParams,
+    type CapabilityExtractParams as CapabilityExtractParams,
+    type CapabilitySummarizeParams as CapabilitySummarizeParams,
+  };
+
+  export { Models as Models };
+
+  export { Kpu as Kpu, type KpuRunResponse as KpuRunResponse, type KpuRunParams as KpuRunParams };
+
+  export { FileInterpreter as FileInterpreter };
+
+  export { Mainet as Mainet };
+
+  export type TextComparator = API.TextComparator;
+  export type TextExtractor = API.TextExtractor;
+  export type TextSummary = API.TextSummary;
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   MaisaError,
   APIError,
   APIConnectionError,
@@ -168,36 +237,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace Maisa {
-  // Helper functions
-  export import toFile = Uploads.toFile;
-  export import fileFromPath = Uploads.fileFromPath;
-
-  export import RequestOptions = Core.RequestOptions;
-
-  export import Capabilities = API.Capabilities;
-  export import CapabilityCompareParams = API.CapabilityCompareParams;
-  export import CapabilityExtractParams = API.CapabilityExtractParams;
-  export import CapabilitySummarizeParams = API.CapabilitySummarizeParams;
-
-  export import Models = API.Models;
-
-  export import Kpu = API.Kpu;
-  export import KpuRunResponse = API.KpuRunResponse;
-  export import KpuRunParams = API.KpuRunParams;
-
-  export import FileInterpreter = API.FileInterpreter;
-
-  export import Mainet = API.Mainet;
-
-  export import TextComparator = API.TextComparator;
-  export import TextExtractor = API.TextExtractor;
-  export import TextSummary = API.TextSummary;
-}
+} from './error';
 
 export default Maisa;

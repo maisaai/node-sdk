@@ -7,12 +7,10 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "maisa/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "maisa/*": ["src/*"],
-      "maisa": ["src/index.ts"],
-      "digest-fetch": ["./typings/digest-fetch"]
+      "maisa/_shims/auto/*": ["./src/_shims/auto/*-node"],
+      "maisa/*": ["./src/*"],
+      "maisa": ["./src/index.ts"]
     },
     "noEmit": true,
 
@@ -33,6 +31,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "isolatedModules": false,
 
     "skipLibCheck": true
   }

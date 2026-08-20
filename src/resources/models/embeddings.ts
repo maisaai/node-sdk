@@ -1,12 +1,21 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as EmbeddingsAPI from 'maisa/resources/models/embeddings';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
 
 export class Embeddings extends APIResource {
   /**
    * Creates embeddings from pieces of text.
+   *
+   * @example
+   * ```ts
+   * const embeddings = await client.models.embeddings.create({
+   *   texts: [
+   *     'Who invented the light bulb?',
+   *     'Hey, how are you?',
+   *   ],
+   * });
+   * ```
    */
   create(body: EmbeddingCreateParams, options?: Core.RequestOptions): Core.APIPromise<Embeddings> {
     return this._client.post('/v1/models/embeddings', { body, ...options });
@@ -27,7 +36,6 @@ export interface EmbeddingCreateParams {
   texts: Array<string>;
 }
 
-export namespace Embeddings {
-  export import Embeddings = EmbeddingsAPI.Embeddings;
-  export import EmbeddingCreateParams = EmbeddingsAPI.EmbeddingCreateParams;
+export declare namespace Embeddings {
+  export { type Embeddings as Embeddings, type EmbeddingCreateParams as EmbeddingCreateParams };
 }

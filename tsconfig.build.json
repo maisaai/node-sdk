@@ -5,9 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "maisa/*": ["dist/src/*"],
-      "maisa": ["dist/src/index.ts"],
-      "digest-fetch": ["./typings/digest-fetch"]
+      "maisa/*": ["./dist/src/*"],
+      "maisa": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

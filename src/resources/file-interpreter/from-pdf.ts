@@ -1,9 +1,7 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as FromPdfAPI from 'maisa/resources/file-interpreter/from-pdf';
-import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
 
 export class FromPdf extends APIResource {
   /**
@@ -13,7 +11,7 @@ export class FromPdf extends APIResource {
     const { max_pages, ...body } = params;
     return this._client.post(
       '/v1/file-interpreter/from-pdf',
-      multipartFormRequestOptions({ query: { max_pages }, body, ...options }),
+      Core.multipartFormRequestOptions({ query: { max_pages }, body, ...options }),
     );
   }
 }
@@ -22,17 +20,19 @@ export type FromPdfCreateResponse = unknown;
 
 export interface FromPdfCreateParams {
   /**
-   * Body param:
+   * Body param
    */
-  file: Uploadable;
+  file: Core.Uploadable;
 
   /**
-   * Query param:
+   * Query param
    */
   max_pages?: number | null;
 }
 
-export namespace FromPdf {
-  export import FromPdfCreateResponse = FromPdfAPI.FromPdfCreateResponse;
-  export import FromPdfCreateParams = FromPdfAPI.FromPdfCreateParams;
+export declare namespace FromPdf {
+  export {
+    type FromPdfCreateResponse as FromPdfCreateResponse,
+    type FromPdfCreateParams as FromPdfCreateParams,
+  };
 }
